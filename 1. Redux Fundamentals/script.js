@@ -42,9 +42,10 @@ function reducer(state=initialState, action) {
 
 }
 
-console.log(createStore(reducer))
+// console.log(createStore(reducer))
 
-const store = createStore(reducer)
+const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__?.())
+
 
 store.subscribe(() => {
   console.log(store.getState())
@@ -54,9 +55,6 @@ store.dispatch({type : INCREMENT})
 store.dispatch({type : INCREMENT})
 store.dispatch({type : DECREASEBY, payload : 3})
 store.dispatch({type : INCREASEBY, payload : 5})
-
-
-
 
 
 

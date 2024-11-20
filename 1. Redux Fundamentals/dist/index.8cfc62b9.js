@@ -631,8 +631,8 @@ function reducer(state = initialState, action) {
 // }
 // return state
 }
-console.log((0, _redux.createStore)(reducer));
-const store = (0, _redux.createStore)(reducer);
+// console.log(createStore(reducer))
+const store = (0, _redux.createStore)(reducer, window.__REDUX_DEVTOOLS_EXTENSION__?.());
 store.subscribe(()=>{
     console.log(store.getState());
 });

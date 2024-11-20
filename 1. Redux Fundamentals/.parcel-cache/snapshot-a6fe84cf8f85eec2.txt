@@ -3,14 +3,14 @@
 52D:\Redux in depth\1. Redux Fundamentals\package.json133765682214805969 0
 71D:\Redux in depth\1. Redux Fundamentals\node_modules\redux\package.json133765680551996072 0
 57D:\Redux in depth\1. Redux Fundamentals\package-lock.json133765680552396769 0
-44D:\Redux in depth\1. Redux Fundamentals\dist133765718739075989 1
+44D:\Redux in depth\1. Redux Fundamentals\dist133765778473099278 1
 50D:\Redux in depth\1. Redux Fundamentals\index.html133765682395147720 0
 67D:\Redux in depth\1. Redux Fundamentals\node_modules\redux\dist\cjs133765680552026528 1
 52D:\Redux in depth\1. Redux Fundamentals\node_modules133765680552406744 1
 66D:\Redux in depth\1. Redux Fundamentals\dist\index.672d4772.js.map133765681868007756 0
 58D:\Redux in depth\1. Redux Fundamentals\node_modules\redux133765680552106342 1
 73D:\Redux in depth\1. Redux Fundamentals\node_modules\redux\dist\redux.mjs133765680552096332 0
-49D:\Redux in depth\1. Redux Fundamentals\script.js133765719487564568 0
+49D:\Redux in depth\1. Redux Fundamentals\script.js133765778472781363 0
 63D:\Redux in depth\1. Redux Fundamentals\node_modules\redux\dist133765680552261745 1
 85D:\Redux in depth\1. Redux Fundamentals\node_modules\redux\dist\redux.browser.mjs.map133765680552016583 0
 79D:\Redux in depth\1. Redux Fundamentals\node_modules\redux\src\utils\warning.ts133765680552291588 0
@@ -45,5 +45,5 @@
 81D:\Redux in depth\1. Redux Fundamentals\node_modules\redux\dist\cjs\redux.cjs.map133765680552036508 0
 78D:\Redux in depth\1. Redux Fundamentals\dist\1. Redux Fundamentals.3464ddca.js133765679676340972 0
 62D:\Redux in depth\1. Redux Fundamentals\dist\index.672d4772.js133765681867966525 0
-62D:\Redux in depth\1. Redux Fundamentals\dist\index.8cfc62b9.js133765718738974380 0
-66D:\Redux in depth\1. Redux Fundamentals\dist\index.8cfc62b9.js.map133765718739066024 0
+62D:\Redux in depth\1. Redux Fundamentals\dist\index.8cfc62b9.js133765778473063835 0
+66D:\Redux in depth\1. Redux Fundamentals\dist\index.8cfc62b9.js.map133765778473085317 0
