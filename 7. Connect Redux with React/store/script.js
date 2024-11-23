@@ -9,7 +9,7 @@ const reducer = combineReducers({
   wishlist : wishlistsReducer,
 })
 
-const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__?.());
+export const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__?.());
 
 store.dispatch(addCartItem(1,3));
 store.dispatch(addCartItem(2,2));
