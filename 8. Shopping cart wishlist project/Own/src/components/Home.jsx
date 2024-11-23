@@ -9,6 +9,7 @@ const Home = () => {
       {productList.map(({ id, image, title, price, rating }) => (
         <SingleCart
           key={id}
+          id={id}
           image={image}
           title={title}
           price={price}
