@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux"
 import { addCartItem } from "../store/cartReducer"
+import { addWishListItem } from "../store/wishListReducer"
 
 export default function Product({ productId, title, rating, price, imageUrl }) {
   const dispatch = useDispatch()
@@ -19,7 +20,7 @@ export default function Product({ productId, title, rating, price, imageUrl }) {
       </div>
       <div className="cta-container">
         <button onClick={()=> dispatch(addCartItem({ productId, title, rating, price, imageUrl }))}>Add to Cart</button>
-        <button>Add Wishlist</button>
+        <button onClick={()=> dispatch(addWishListItem({ productId, title, rating, price, imageUrl }))}>Add Wishlist</button>
       </div>
     </div>
   )

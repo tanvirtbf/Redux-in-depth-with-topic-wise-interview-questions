@@ -170,6 +170,10 @@ form button {
 
 .cart-icon {
   position: relative;
+  width: 30px;
+}
+.cart-icon img{
+  width: 100%
 }
 
 .cart-items-count {
