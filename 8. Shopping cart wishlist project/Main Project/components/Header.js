@@ -7,8 +7,8 @@ import { useSelector } from "react-redux";
 export default function Header() {
   
   const cartItems = useSelector((state) => state.cartItems);
-  const wishlistItem = useSelector((state) => state.wishlistItem);
-
+  const wishlists = useSelector(state => state.wishList)
+  console.log(wishlists)
   return (
     <header>
       <div className="header-contents">
@@ -18,7 +18,7 @@ export default function Header() {
         <Link className="cart-icon" to="/wishlist">
           <img src={WishListIcon} alt="cart-icon" />
           <div className="cart-items-count">
-            {10}
+            {wishlists.length}
           </div>
         </Link>
         <Link className="cart-icon" to="/cart">
