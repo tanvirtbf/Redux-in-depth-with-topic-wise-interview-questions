@@ -3,6 +3,7 @@ import SingleCart from "./SingleCart";
 
 const Home = () => {
   const productList = store.getState().productList;
+  
 
   return (
     <div className="flex gap-3 flex-wrap justify-between">
