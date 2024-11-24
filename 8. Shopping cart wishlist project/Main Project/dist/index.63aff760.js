@@ -35568,17 +35568,17 @@ const reducer = (0, _redux.combineReducers)({
     cartItems: (0, _cartReducerDefault.default),
     wishList: (0, _wishListReducerDefault.default)
 });
-const store = (0, _redux.createStore)(reducer, window.__REDUX_DEVTOOLS_EXTENSION__?.());
-// console.log(store)
-store.dispatch((0, _cartReducer.addCartItem)(1));
-store.dispatch((0, _cartReducer.addCartItem)(12));
-store.dispatch((0, _cartReducer.increaseCartItemQuantity)(12));
-store.dispatch((0, _cartReducer.decreaseCartItemQuantity)(12));
-store.dispatch((0, _cartReducer.decreaseCartItemQuantity)(12));
-store.dispatch((0, _wishListReducer.addWishListItem)(18));
-store.dispatch((0, _wishListReducer.addWishListItem)(11));
-store.dispatch((0, _wishListReducer.removeWishListItem)(11));
-store.dispatch((0, _wishListReducer.removeWishListItem)(18));
+const store = (0, _redux.createStore)(reducer, window.__REDUX_DEVTOOLS_EXTENSION__?.()) // console.log(store)
+ // store.dispatch(addCartItem(1))
+ // store.dispatch(addCartItem(12))
+ // store.dispatch(increaseCartItemQuantity(12))
+ // store.dispatch(decreaseCartItemQuantity(12))
+ // store.dispatch(decreaseCartItemQuantity(12))
+ // store.dispatch(addWishListItem(18))
+ // store.dispatch(addWishListItem(11))
+ // store.dispatch(removeWishListItem(11))
+ // store.dispatch(removeWishListItem(18))
+;
 
 },{"redux":"cDNB3","./productsReducer":"4j4f8","./cartReducer":"kNTZ9","./wishListReducer":"b4mlo","@parcel/transformer-js/src/esmodule-helpers.js":"cskQC"}],"cDNB3":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -36489,6 +36489,11 @@ function increaseCartItemQuantity(productId) {
 function cartReducer(state = [], action) {
     switch(action.type){
         case CART_ADD_ITEM:
+            const existingItem = state.find((item)=>item.productId === action.payload.productId);
+            if (existingItem) return state.map((cartItem)=>cartItem.productId === action.payload.productId ? {
+                    ...cartItem,
+                    quantity: cartItem.quantity + 1
+                } : cartItem);
             return [
                 ...state,
                 action.payload
@@ -36579,6 +36584,7 @@ function Home() {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "products-container",
         children: productsList.map(({ id, title, rating, price, image })=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productDefault.default), {
+                productId: id,
                 title: title,
                 rating: rating.rate,
                 price: price,
@@ -36619,7 +36625,12 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>Product);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-function Product({ title, rating, price, imageUrl }) {
+var _reactRedux = require("react-redux");
+var _cartReducer = require("../store/cartReducer");
+var _s = $RefreshSig$();
+function Product({ productId, title, rating, price, imageUrl }) {
+    _s();
+    const dispatch = (0, _reactRedux.useDispatch)();
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "product",
         children: [
@@ -36630,12 +36641,12 @@ function Product({ title, rating, price, imageUrl }) {
                     alt: title
                 }, void 0, false, {
                     fileName: "components/Product.js",
-                    lineNumber: 5,
+                    lineNumber: 9,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "components/Product.js",
-                lineNumber: 4,
+                lineNumber: 8,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -36646,17 +36657,17 @@ function Product({ title, rating, price, imageUrl }) {
                         children: title
                     }, void 0, false, {
                         fileName: "components/Product.js",
-                        lineNumber: 9,
+                        lineNumber: 13,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "components/Product.js",
-                    lineNumber: 8,
+                    lineNumber: 12,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "components/Product.js",
-                lineNumber: 7,
+                lineNumber: 11,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -36670,7 +36681,7 @@ function Product({ title, rating, price, imageUrl }) {
                         ]
                     }, void 0, true, {
                         fileName: "components/Product.js",
-                        lineNumber: 13,
+                        lineNumber: 17,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -36681,29 +36692,6 @@ function Product({ title, rating, price, imageUrl }) {
                         ]
                     }, void 0, true, {
                         fileName: "components/Product.js",
-                        lineNumber: 14,
-                        columnNumber: 9
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "components/Product.js",
-                lineNumber: 12,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "cta-container",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        children: "Add to Cart"
-                    }, void 0, false, {
-                        fileName: "components/Product.js",
-                        lineNumber: 17,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        children: "Buy Now"
-                    }, void 0, false, {
-                        fileName: "components/Product.js",
                         lineNumber: 18,
                         columnNumber: 9
                     }, this)
@@ -36712,14 +36700,43 @@ function Product({ title, rating, price, imageUrl }) {
                 fileName: "components/Product.js",
                 lineNumber: 16,
                 columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "cta-container",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        onClick: ()=>dispatch((0, _cartReducer.addCartItem)(productId)),
+                        children: "Add to Cart"
+                    }, void 0, false, {
+                        fileName: "components/Product.js",
+                        lineNumber: 21,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        children: "Buy Now"
+                    }, void 0, false, {
+                        fileName: "components/Product.js",
+                        lineNumber: 22,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "components/Product.js",
+                lineNumber: 20,
+                columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "components/Product.js",
-        lineNumber: 3,
+        lineNumber: 7,
         columnNumber: 5
     }, this);
 }
+_s(Product, "rgTLoBID190wEKCp9+G8W6F7A5M=", false, function() {
+    return [
+        (0, _reactRedux.useDispatch)
+    ];
+});
 _c = Product;
 var _c;
 $RefreshReg$(_c, "Product");
@@ -36729,7 +36746,7 @@ $RefreshReg$(_c, "Product");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"cskQC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"lplyY"}],"bg1io":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"cskQC","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"lplyY","react-redux":"bdVon","../store/cartReducer":"kNTZ9"}],"bg1io":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$a0c8 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

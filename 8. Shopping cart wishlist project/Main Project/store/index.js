@@ -23,16 +23,16 @@ export const store = createStore(
 
 // console.log(store)
 
-store.dispatch(addCartItem(1))
-store.dispatch(addCartItem(12))
+// store.dispatch(addCartItem(1))
+// store.dispatch(addCartItem(12))
 
-store.dispatch(increaseCartItemQuantity(12))
+// store.dispatch(increaseCartItemQuantity(12))
 
-store.dispatch(decreaseCartItemQuantity(12))
-store.dispatch(decreaseCartItemQuantity(12))
+// store.dispatch(decreaseCartItemQuantity(12))
+// store.dispatch(decreaseCartItemQuantity(12))
 
-store.dispatch(addWishListItem(18))
-store.dispatch(addWishListItem(11))
+// store.dispatch(addWishListItem(18))
+// store.dispatch(addWishListItem(11))
 
-store.dispatch(removeWishListItem(11))
-store.dispatch(removeWishListItem(18))
+// store.dispatch(removeWishListItem(11))
+// store.dispatch(removeWishListItem(18))
