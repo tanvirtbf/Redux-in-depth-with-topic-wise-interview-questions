@@ -11,8 +11,8 @@ const slice = createSlice({
   reducers: {
     addCartItem(state, action) {
       const existingItemIndex = findItemIndex(state, action);
-      if(existingItemIndex) state[existingItemIndex].quantity += 1
-      state.push({...action.payload, quantity: 1})
+      if(existingItemIndex !== -1) state[existingItemIndex].quantity += 1
+      else state.push({...action.payload, quantity: 1})
     },
     removeCartItem(state, action) {
       const existingItemIndex = findItemIndex(state, action);
@@ -25,9 +25,41 @@ const slice = createSlice({
     decreaseCartItemQuantity(state, action){
       const existingItemIndex = findItemIndex(state, action);
       state[existingItemIndex].quantity -= 1
+      if (state[existingItemIndex].quantity === 0)
+        state.splice(existingItemIndex, 1)
     }
   },
 });
+
+export const {
+  addCartItem,
+  removeCartItem,
+  increaseCartItemQuantity,
+  decreaseCartItemQuantity,
+} = slice.actions
+
+export default slice.reducer
+
+// addCartItem(state, action) {
+//   const existingItemIndex = findItemIndex(state, action)
+//   if (existingItemIndex !== -1) state[existingItemIndex].quantity += 1
+//   else state.push({ ...action.payload, quantity: 1 })
+// },
+// removeCartItem(state, action) {
+//   const existingItemIndex = findItemIndex(state, action)
+//   state.splice(existingItemIndex, 1)
+// },
+// increaseCartItemQuantity(state, action) {
+//   const existingItemIndex = findItemIndex(state, action)
+//   state[existingItemIndex].quantity += 1
+// },
+// decreaseCartItemQuantity(state, action) {
+//   const existingItemIndex = findItemIndex(state, action)
+//   state[existingItemIndex].quantity -= 1
+//   if (state[existingItemIndex].quantity === 0)
+//     state.splice(existingItemIndex, 1)
+// },
+
 
 // // Action Types
 // export const CART_ADD_ITEM = 'cart/addItem'
