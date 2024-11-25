@@ -6,6 +6,7 @@ import { productsList } from "../store/productsList";
 import { updateAllProducts } from "../store/slices/productsSlice";
 
 export default function Header() {
+  
   const dispatch = useDispatch();
 
   useEffect(() => {
