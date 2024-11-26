@@ -8,18 +8,21 @@ export default function Header() {
   
   const dispatch = useDispatch();
 
-  useEffect(()=> {
-    dispatch(fetchProducts())
-    fetch('https://fakestoreapi.com/products')
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data)
-        dispatch(updateAllProducts(data))
-      })
-      .catch((err) => {
-        dispatch(fetchProductsError('Api not fetch successfully!'))
-      })
-  })
+  
+
+
+  // useEffect(()=> {
+  //   dispatch(fetchProducts())
+  //   fetch('https://fakestoreapi.com/products')
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log(data)
+  //       dispatch(updateAllProducts(data))
+  //     })
+  //     .catch((err) => {
+  //       dispatch(fetchProductsError('Api not fetch successfully!'))
+  //     })
+  // })
 
   const cartItems = useSelector((state) => state.cartItems);
   return (
