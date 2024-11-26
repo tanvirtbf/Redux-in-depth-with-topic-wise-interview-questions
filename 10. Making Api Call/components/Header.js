@@ -2,21 +2,24 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CartIcon from "../assets/cart-icon.svg";
-import { productsList } from "../store/productsList";
-import { updateAllProducts } from "../store/slices/productsSlice";
+import { fetchProducts, fetchProductsError, updateAllProducts } from '../store/slices/productsSlice'
 
 export default function Header() {
   
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
+  useEffect(()=> {
+    dispatch(fetchProducts())
+    fetch('https://fakestoreapi.com/products')
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-      });
-    dispatch(updateAllProducts(productsList));
-  }, []);
+        console.log(data)
+        dispatch(updateAllProducts(data))
+      })
+      .catch((err) => {
+        dispatch(fetchProductsError('Api not fetch successfully!'))
+      })
+  })
 
   const cartItems = useSelector((state) => state.cartItems);
   return (

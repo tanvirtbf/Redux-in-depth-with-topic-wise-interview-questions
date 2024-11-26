@@ -2,15 +2,27 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const slice = createSlice({
   name: 'product',
-  initialState: [],
+  initialState: {
+    loading: false,
+    list: [], 
+    error: ''
+  },
   reducers: {
+    fetchProducts(state){
+      state.loading = true
+    },
+    fetchProductsError(state, action){
+      state.loading = false
+      state.error = action.payload || 'Something went wrong'
+    },
     updateAllProducts(state, action){
-      return action.payload
-    }
+      state.loading = false
+      state.list = action.payload
+    },
   }
 })
 
-export const { updateAllProducts } = slice.actions
+export const { updateAllProducts, fetchProducts, fetchProductsError } = slice.actions
 
 export default slice.reducer
 
