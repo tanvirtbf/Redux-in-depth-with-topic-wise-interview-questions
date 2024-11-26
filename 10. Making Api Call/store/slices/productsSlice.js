@@ -14,14 +14,14 @@ const slice = createSlice({
     fetchProductsError(state,action){
       state.error = action.payload || 'Something went wrong'
     },
-    updatedProducts(state,action){
+    updateAllProducts(state,action){
       state.loading=false
       state.list = action.payload
     }
   }
 })
 
-const { fetchProducts, fetchProductsError, updatedProducts } = slice.actions
+export const { fetchProducts, fetchProductsError, updateAllProducts } = slice.actions
 
 export default slice.reducer
 

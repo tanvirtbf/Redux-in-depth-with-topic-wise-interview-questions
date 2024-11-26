@@ -2,14 +2,24 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CartIcon from "../assets/cart-icon.svg";
-import { fetchProducts, fetchProductsError, updateAllProducts } from '../store/slices/productsSlice'
+import {
+  fetchProducts,
+  fetchProductsError,
+  updateAllProducts,
+} from "../store/slices/productsSlice";
 
 export default function Header() {
-  
   const dispatch = useDispatch();
 
-  
-
+  useEffect(() => {
+    dispatch(fetchProducts());
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch(updateAllProducts(data));
+      })
+      .catch((err) => dispatch(fetchProductsError("Wrong Api!")));
+  });
 
   // useEffect(()=> {
   //   dispatch(fetchProducts())
